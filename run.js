@@ -4,7 +4,7 @@ var fs = require('fs')
 
 var tickers;
 
-fs.readFile('tickers.txt', 'utf8', function(err, data) {
+fs.readFile('conf/tickers.conf', 'utf8', function(err, data) {
   tickers = data.replace(/\r?\n/g, ',').replace(' ', '').toUpperCase();
   tickers.match(/,$/g) && (tickers = tickers.slice(0, tickers.length-1));
 
