@@ -15,7 +15,13 @@ var updateTickers = function() {
   request(url, function(err, res, body) {
     // Convert response to JSON
     body = body.slice(3, body.length);
-    var json = JSON.parse(body);
+    var json = '';
+    try {
+      json = JSON.parse(body);
+    } catch (e) {
+      setTimeout(updateTickers, 3000);
+      return;
+    }
 
     // Format timestamp
     var output = '[' + new Date().toISOString().replace(/\..+/, '').split('T')[1] + '] ';
