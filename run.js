@@ -27,8 +27,12 @@ var updateTickers = function() {
     var output = '[' + new Date().toISOString().replace(/\..+/, '').split('T')[1] + '] ';
     for(var i = 0; i < json.length; i++) {
       // Format string with color-coded price change
-      var color = (json[i].c < 0) ? 'red' : 'green';
-      output += json[i].t + ': $' + json[i].l + ' (' + json[i].c[color] + ')   ';
+      if(json[i].c[0] == '+') {
+        json[i].c = ('▲ ' + json[i].c.slice(1, json[i].c.length)).green;
+      } else {
+        json[i].c = ('▼ ' + json[i].c.slice(1, json[i].c.length)).red;
+      }
+      output += json[i].t + ': $' + json[i].l + ' (' + json[i].c + ')   ';
     }
 
     // Clear the shell and print new output
