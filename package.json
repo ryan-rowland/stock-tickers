@@ -1,0 +1,22 @@
+{
+  "name": "ticker",
+  "version": "0.0.0",
+  "description": "Simple *nix shell stock ticker",
+  "main": "run.js",
+  "dependencies": {
+    "colors": "~0.6.2",
+    "request": "~2.27.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "stock",
+    "ticker",
+    "stocks",
+    "ticker"
+  ],
+  "author": "Ryan Rowland",
+  "license": "MIT"
+}
